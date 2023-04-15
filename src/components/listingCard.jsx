@@ -2,10 +2,19 @@ import PolygonLogo from '../images/polygon.svg'
 import FilecoinLogo from '../images/filecoin.svg'
 import { Framework } from "@superfluid-finance/sdk-core";
 import { ethers } from "ethers";
+import { WorkContext } from '../context/workContext';
+import { useContext, useState } from 'react';
 
-const ListingCard = (props) =>{
+const ListingCard = (props) => {
+
+  const {sismoProof, setSismoProof, works, workCount, currentAccount} = useContext(WorkContext)
+  const [recipient, setRecipient] = useState("");
 
   async function createNewFlow(recipient, flowRate) {
+    if(currentAccount === ""){
+      alert("Please connect your wallet first")
+      return
+    }
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     await provider.send("eth_requestAccounts", []);
   
@@ -35,6 +44,7 @@ const ListingCard = (props) =>{
   
       console.log(createFlowOperation);
       console.log("Creating your stream...");
+      alert("stream created successfully!")
   
       const result = await createFlowOperation.exec(superSigner);
       console.log(result);
@@ -43,6 +53,11 @@ const ListingCard = (props) =>{
         `Congrats - you've just created a money stream!
       `
       );
+      alert(
+        `Congrats - you've just created a money stream!
+      `
+      );
+      
     } catch (error) {
       console.log(
         "Hmmm, your transaction threw an error. Make sure that this stream does not already exist, and that you've entered a valid Ethereum address!"
@@ -62,8 +77,13 @@ const ListingCard = (props) =>{
           <p className='py-2 font-secondary'>{props.desc}</p>
         </div>
         <div className='basis-2/12 flex flex-col gap-3 justify-center items-center '>
-          <button className='btn bg-emerald-600 px-3 py-1 rounded-lg font-secondary'>Apply</button>
-          {props.chain !== "Polygon" && <button className='text-sm bg-blue-600 px-3 py-1 btn rounded-lg text-[#f6f6f6] font-secondary'> Requirement Files</button>}
+          {/* <button className='btn bg-emerald-600 px-3 py-1 rounded-lg font-secondary'>Start Stream</button> */}
+          {
+            window.location.pathname === "/profile" ?
+"" :
+            <button className='btn bg-emerald-600 px-3 py-1 rounded-lg font-secondary' onClick={() => (createNewFlow("0xDdFfEB75dC5fB826eD164EC13Fe02728E2A79FF7", "1"))}>Start Stream</button>
+
+          }
   
         </div>
       </div>

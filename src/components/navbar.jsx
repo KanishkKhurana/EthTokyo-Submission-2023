@@ -104,7 +104,7 @@ export default function Navbar() {
         <div className="hidden md:inline">
           <button className=" bg-gradient-to-r from-[#01C3F1] to-[#2BF2FF] text-[#262262]  hover:to-[#01C3F1] hover:from-[#2BF2FF] transition duration-300 tracking-widest ease-in-out py-1 px-3 text-center my-2 font-BrinnanRegular">
             <a
-              href="https://discord.gg/SGPG8PqkHW "
+              href="https://twitter.com/KanishkKhurana_"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -115,7 +115,7 @@ export default function Navbar() {
         <div className="hidden md:inline">
           <button className="bg-gradient-to-r from-[#5eead4] to-[#2BF2FF] text-[#262262] hover:to-[#5eead4] hover:from-[#2BF2FF] font-semibold  text-xs tracking-widest  py-2 px-3 text-center mr-2 my-2 font-BrinnanRegular">
             <a
-              href="https://forms.lumoslabs.co/whitelist "
+              href="https://github.com/KanishkKhurana/EthTokyo-Submission-2023"
               target="_blank"
               rel="noopener noreferrer"
             >

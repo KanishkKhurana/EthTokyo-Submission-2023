@@ -1,5 +1,5 @@
 import React,{useEffect,useState} from 'react';
-
+import axios from 'axios';
 import {contractAddress, contractABI} from '../utils/ContractDetails';
 const ethers = require("ethers");
 export const WorkContext = React.createContext();
@@ -19,6 +19,8 @@ export const WorkProvider = ({children}) => {
     const [works, setWorks] = useState([]);
     const [workCount, setWorkCount] = useState(0);
   const [sismoProof, setSismoProof] = useState("");
+  const [modal, setModal] = useState(false);
+  const [ipfs , setIpfs] = useState([]);
 
 
 
@@ -87,6 +89,7 @@ const getEthereumContract = () => {
             await transaction.wait();
             console.log(`${title} has been added to the blockchain`);
             alert(`${title} has been added to the blockchain`);
+            setModal(true);
         } catch (error) {
             console.log(error);
         }
@@ -117,17 +120,35 @@ const getEthereumContract = () => {
         }
     }
 
+    const getFilesfromIPFS = async () => {
+        try {
+            const res = await axios({
+                method: "get",
+                url: "https://api.pinata.cloud/data/pinList?includeCount=true",
+                headers: {
+                    'pinata_api_key': `${process.env.REACT_PUBLIC_APP_PINATA_API_KEY}`,
+                    'pinata_secret_api_key': `${process.env.REACT_PUBLIC_APP_PINATA_API_SECRET}`,
+                },
+            });
+            console.log(res.data);
+        } catch (error) {
+            console.log("Error getting Files from IPFS: ")
+            console.log(error)
+        }
+    }
+
     
     useEffect( () => {
       
-
+        // getFilesfromIPFS();
         getAllWork();
         getWorkCount();
     }, []);
 
 
+
     return (
-        <WorkContext.Provider value={{workCount, setWorkCount,works, setWorks,link, setLink,receiver, setReceiver,amount, setAmount,description, setDescription,title, setTitle,addWork, ConnectWallet, sismoProof, setSismoProof, workPrizeReceiver, currentAccount , setCurrentAccount }}>
+        <WorkContext.Provider value={{modal, setModal,workCount, setWorkCount,works, setWorks,link, setLink,receiver, setReceiver,amount, setAmount,description, setDescription,title, setTitle,addWork, ConnectWallet, sismoProof, setSismoProof, workPrizeReceiver, currentAccount , setCurrentAccount }}>
             {children}
         </WorkContext.Provider>
     )

@@ -2,6 +2,8 @@ import React, {useContext} from 'react'
 import ProfileImage from '../images/zoe.svg'
 import ListingCard from '../components/listingCard'
 import {WorkContext} from '../context/workContext'
+import FilecoinLogo from '../images/filecoin.svg'
+
 
 const MyProfile =() =>{
   const {sismoProof, setSismoProof, works, workCount} = useContext(WorkContext)
@@ -37,6 +39,7 @@ export default function Profile() {
   return (
     <div className='py-44'>
       <MyProfile />
+
       <div className='py-12'>
         <h1 className='text-3xl font-heading font-medium text-white text-center'>My Listings</h1>
         
@@ -50,6 +53,15 @@ export default function Profile() {
       
 
         </div>  
+
+        <div className='py-12'>
+        <h1 className='text-3xl font-heading font-medium text-white text-center'>Contribution NFTs</h1>
+            <div className='flex justify-center items-center'>
+              <img src={FilecoinLogo} alt="" className='w-1/12'/>
+              </div>
+          
+            
+        </div>
     </div>
   )
 }

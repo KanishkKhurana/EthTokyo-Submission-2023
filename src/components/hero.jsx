@@ -48,10 +48,10 @@ export default function Hero() {
                 {/* <p className='text-sm font-InterRegular text-neutral-300'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris  nisi ut aliquip ex ea commodo consequat. </p> */}
             </div>
             <div className='flex justify-center flex-col'>
-                <p className='text-lg text-sky-300 font-BrinnanBold px-3 md:px-0 text-center md:text-left  opacity-80'>Get hired on the speed of fire  </p>
+                <p className='text-lg text-sky-300 font-BrinnanBold px-3 md:px-0 text-center md:text-left  opacity-80'> Get paid for how much a user uses your app </p>
                 <div className='flex flex-col md:flex-row gap-4 items-center md:items-start my-7'>
-                <a className='btn buttonNotch p-3 px-7 max-w-max flex  gap-1 btn text-[#262262] font-BrinnanBold' href="https://discord.gg/SGPG8PqkHW" rel="noopener noreferrer" target="_blank">Find Work  <span className='font-InterSemibold ml-2'>↗ </span></a>
-                <a className=' buttonNotch2 p-3 px-7 max-w-fit flex gap-1  text-[#262262] font-BrinnanBold' href="https://forms.lumoslabs.co/whitelist " rel="noopener noreferrer" target="_blank">List a Job   <span className='font-InterSemibold ml-2'>↗ </span></a>
+                {/* <a className='btn buttonNotch p-3 px-7 max-w-max flex  gap-1 btn text-[#262262] font-BrinnanBold' href="https://discord.gg/SGPG8PqkHW" rel="noopener noreferrer" target="_blank">Find Work  <span className='font-InterSemibold ml-2'>↗ </span></a> */}
+                {/* <a className=' buttonNotch2 p-3 px-7 max-w-fit flex gap-1  text-[#262262] font-BrinnanBold' href="https://forms.lumoslabs.co/whitelist " rel="noopener noreferrer" target="_blank">List a Job   <span className='font-InterSemibold ml-2'>↗ </span></a> */}
             </div>
                 {sismoProof? <p className='text-white break-words '>LogIn Proof: {sismoProof.slice(0,8)+"..."+sismoProof.slice(sismoProof.length-8)}</p>  : <SismoConnectButton
   config={sismoConnectConfig} // the config created above

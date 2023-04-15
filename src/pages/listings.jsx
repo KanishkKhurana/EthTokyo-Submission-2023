@@ -4,11 +4,12 @@ import PolygonLogo from '../images/polygon.svg'
 import FilecoinLogo from '../images/filecoin.svg'
 import ListingCard from '../components/listingCard'
 import {WorkContext} from '../context/workContext'
+import NftModal from '../components/nftModal'
 
 
 
 export default function Listings() {
-  const {sismoProof, setSismoProof, works} = useContext(WorkContext)
+  const {sismoProof, setSismoProof, works, modal} = useContext(WorkContext)
   return (
     <div className='xl:mx-24 mx-3 xl:py-44 py-12'>
       <div className='text-center text-white pb-16'>
@@ -27,6 +28,7 @@ export default function Listings() {
           <div className='basis-2/6'>
             <ListingForm  />
           </div>
+         {/* {modal && <div className='absolute'><NftModal /></div>} */}
         </div>
     </div>
   )
