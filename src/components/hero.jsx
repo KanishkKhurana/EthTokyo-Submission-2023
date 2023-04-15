@@ -15,9 +15,8 @@ const sismoConnectConfig = {
 };
 
 const TEXTS = [
-    "Upskill",
+    
     "Earn",
-    "Network",
     "Grow"
   ];
 
