@@ -1,4 +1,4 @@
-export const contractAddress = "0x00b6690b32D15E58F289382E793991CAa5940B8D"
+export const contractAddress = "0xbF9b8BcB6966F137A9B112e7Ae8AeDf963B01A61"
 
 export const contractABI = [
 	{
@@ -10,21 +10,39 @@ export const contractABI = [
 			},
 			{
 				"internalType": "uint256",
+				"name": "_workNum",
+				"type": "uint256"
+			}
+		],
+		"name": "addReceiver",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
 				"name": "_amount",
 				"type": "uint256"
 			},
 			{
 				"internalType": "string",
-				"name": "_note",
+				"name": "_desc",
 				"type": "string"
 			},
 			{
 				"internalType": "string",
-				"name": "_name",
+				"name": "_title",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_file",
 				"type": "string"
 			}
 		],
-		"name": "addPayback",
+		"name": "addWork",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -41,12 +59,6 @@ export const contractABI = [
 				"indexed": false,
 				"internalType": "address",
 				"name": "sender",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"internalType": "address",
-				"name": "receiver",
 				"type": "address"
 			},
 			{
@@ -72,9 +84,15 @@ export const contractABI = [
 				"internalType": "uint256",
 				"name": "time",
 				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "file",
+				"type": "string"
 			}
 		],
-		"name": "Payback",
+		"name": "work",
 		"type": "event"
 	},
 	{
@@ -83,7 +101,7 @@ export const contractABI = [
 	},
 	{
 		"inputs": [],
-		"name": "getAllPaybacks",
+		"name": "getAllWork",
 		"outputs": [
 			{
 				"components": [
@@ -93,32 +111,32 @@ export const contractABI = [
 						"type": "address"
 					},
 					{
-						"internalType": "address",
-						"name": "receiver",
-						"type": "address"
-					},
-					{
 						"internalType": "uint256",
 						"name": "amount",
 						"type": "uint256"
 					},
 					{
 						"internalType": "string",
-						"name": "note",
+						"name": "desc",
 						"type": "string"
 					},
 					{
 						"internalType": "string",
-						"name": "name",
+						"name": "title",
 						"type": "string"
 					},
 					{
 						"internalType": "uint256",
 						"name": "time",
 						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "file",
+						"type": "string"
 					}
 				],
-				"internalType": "struct Udhaar.PaybackStruct[]",
+				"internalType": "struct chainwork.workStruct[]",
 				"name": "",
 				"type": "tuple[]"
 			}
@@ -128,7 +146,7 @@ export const contractABI = [
 	},
 	{
 		"inputs": [],
-		"name": "getPaybackCount",
+		"name": "getWorkCount",
 		"outputs": [
 			{
 				"internalType": "uint256",

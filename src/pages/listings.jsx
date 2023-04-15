@@ -1,12 +1,14 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import ListingForm  from '../components/listingForm'
 import PolygonLogo from '../images/polygon.svg'
 import FilecoinLogo from '../images/filecoin.svg'
 import ListingCard from '../components/listingCard'
+import {WorkContext} from '../context/workContext'
 
 
 
 export default function Listings() {
+  const {sismoProof, setSismoProof, works} = useContext(WorkContext)
   return (
     <div className='xl:mx-24 mx-3 xl:py-44 py-12'>
       <div className='text-center text-white pb-16'>
@@ -15,8 +17,12 @@ export default function Listings() {
       </div>
         <div className='flex flex-col xl:flex-row gap-5'>
           <div className='basis-4/6 flex flex-col gap-3 '>
-            <ListingCard chain="Polygon" title="Frontend Website" desc="Build a frontend for EthGlobal website" />
-            <ListingCard chain="Filecoin" title="Frontend Website" desc="Build a frontend for EthGlobal website" />
+            {works.map((work, index) => {
+              return <ListingCard key={index} chain={work.chain} title={work.title} desc={work.desc} />
+
+            })}
+            {/* <ListingCard chain="Polygon" title="Frontend Website" desc="Build a frontend for EthGlobal website" />
+            <ListingCard chain="Filecoin" title="Frontend Website" desc="Build a frontend for EthGlobal website" /> */}
           </div>
           <div className='basis-2/6'>
             <ListingForm  />

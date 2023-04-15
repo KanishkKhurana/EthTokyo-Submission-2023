@@ -71,7 +71,7 @@ const getEthereumContract = () => {
         
         try {
             const transactionContract = getEthereumContract();
-            const paybacks = await transactionContract.getAllPaybacks();
+            const paybacks = await transactionContract.getAllWork();
             console.log(paybacks);
             setWorks(paybacks);
         } catch (error) {
@@ -83,9 +83,10 @@ const getEthereumContract = () => {
     const addWork = async () => {
         try {
             const transactionContract = getEthereumContract();
-            const transaction = await transactionContract.addPayback(receiver, amount, title, description);
+            const transaction = await transactionContract.addWork(amount, description, title, link);
             await transaction.wait();
             console.log(`${title} has been added to the blockchain`);
+            alert(`${title} has been added to the blockchain`);
         } catch (error) {
             console.log(error);
         }
@@ -94,9 +95,9 @@ const getEthereumContract = () => {
     const getWorkCount = async () => {
         try {
             const transactionContract = getEthereumContract();
-            const count = await transactionContract.getPaybackCount();
+            const count = await transactionContract.getWorkCount();
             console.log(count);
-            setWorkCount(count);
+            setWorkCount(count.toString());
         } catch (error) {
             console.log(error);
         }
@@ -126,7 +127,7 @@ const getEthereumContract = () => {
 
 
     return (
-        <WorkContext.Provider value={{addWork, ConnectWallet, sismoProof, setSismoProof, workPrizeReceiver, currentAccount , setCurrentAccount }}>
+        <WorkContext.Provider value={{workCount, setWorkCount,works, setWorks,link, setLink,receiver, setReceiver,amount, setAmount,description, setDescription,title, setTitle,addWork, ConnectWallet, sismoProof, setSismoProof, workPrizeReceiver, currentAccount , setCurrentAccount }}>
             {children}
         </WorkContext.Provider>
     )

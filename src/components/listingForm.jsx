@@ -2,7 +2,7 @@ import React, {useContext} from 'react'
 import {WorkContext} from '../context/workContext'
 
 export default function ListingForm() {
-  const {sismoProof, setSismoProof, ConnectWallet, currentAccount , setCurrentAccount} = useContext(WorkContext)
+  const {sismoProof, setSismoProof, ConnectWallet, currentAccount , setCurrentAccount, addWork, workCount, setWorkCount,works, setWorks,link, setLink,receiver, setReceiver,amount, setAmount,description, setDescription,title, setTitle} = useContext(WorkContext)
 
   return (
     <div>
@@ -14,25 +14,25 @@ export default function ListingForm() {
             <div className='pt-3 flex flex-col gap-3 justify-center items-center w-full'>
                 <div className='flex flex-col w-full'>
                     <label htmlFor="input" className='font-heading text-[#0d0d0d] tracking-widest'>Title</label>
-                    <input type="text" className='bg-[#0d0d0d] text-[#f6f6f6] p-3 rounded-lg' />
+                    <input type="text" className='bg-[#0d0d0d] text-[#f6f6f6] p-3 rounded-lg' onChange={(e)=>(setTitle(e.target.value))} />
                 </div>
             </div>
             <div className='pt-3 flex flex-col gap-3 justify-center items-center w-full'>
                 <div className='flex flex-col w-full'>
                     <label htmlFor="input" className='font-heading text-[#0d0d0d] tracking-widest'>Description</label>
-                    <input type="text" className='bg-[#0d0d0d] text-[#f6f6f6] p-3 rounded-lg' />
+                    <input type="text" className='bg-[#0d0d0d] text-[#f6f6f6] p-3 rounded-lg' onChange={(e)=>(setDescription(e.target.value))} />
                 </div>
             </div>
             <div className='pt-3 flex flex-col gap-3 justify-center items-center w-full'>
                 <div className='flex flex-col w-full'>
                     <label htmlFor="input" className='font-heading text-[#0d0d0d] tracking-widest'>Amount</label>
-                    <input type="number" className='bg-[#0d0d0d] text-[#f6f6f6] p-3 rounded-lg' />
+                    <input type="number" className='bg-[#0d0d0d] text-[#f6f6f6] p-3 rounded-lg' onChange={(e)=>(setAmount(e.target.value))} />
                 </div>
             </div>
             <div className='pt-3 flex flex-col gap-3 justify-center items-center w-full'>
                 <div className='flex flex-col w-full'>
-                    <label htmlFor="input" className='font-heading text-[#0d0d0d] tracking-widest'>Files</label>
-                    <input type="text" className='bg-[#0d0d0d] text-[#f6f6f6] p-3 rounded-lg' />
+                    <label htmlFor="input" className='font-heading text-[#0d0d0d] tracking-widest'>Link</label>
+                    <input type="text" className='bg-[#0d0d0d] text-[#f6f6f6] p-3 rounded-lg' onChange={(e)=>(setLink(e.target.value))} />
                 </div>
             </div>
             <div className='pt-6 flex flex-col gap-3 justify-center items-center w-full'>
@@ -44,7 +44,7 @@ export default function ListingForm() {
             </div>
             <div className='mt-6 pt-3 flex flex-col gap-3 justify-center border-t border-[#0d0d0d] items-center w-full'>
                 <div className='flex flex-col w-fit'>
-                   <button className='p-4 px-12 bg-blue-600 btn border-none hover:bg-emerald-500  text-[#f6f6f6] font-heading tracking-widest rounded-xl'>
+                   <button className='p-4 px-12 bg-blue-600 btn border-none hover:bg-emerald-500  text-[#f6f6f6] font-heading tracking-widest rounded-xl' onClick={addWork}>
                     Submit
                    </button>
                 </div>
