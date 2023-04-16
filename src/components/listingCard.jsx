@@ -44,6 +44,7 @@ const ListingCard = (props) => {
   
       console.log(createFlowOperation);
       console.log("Creating your stream...");
+      alert("stream created successfully!")
       
       const result = await createFlowOperation.exec(superSigner);
       console.log(result);
@@ -52,7 +53,6 @@ const ListingCard = (props) => {
         `Congrats - you've just created a money stream!
         `
         );
-        alert("stream created successfully!")
       alert(
         `Congrats - you've just created a money stream!
       `
