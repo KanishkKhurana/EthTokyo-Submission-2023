@@ -30,13 +30,13 @@ export default function Footer() {
             <div><Link to="/about">About Us</Link></div>
             {/* <div><Link to="/courses"><a>Courses</a></Link></div> */}
             {/* <div><a>FAQ</a></div> */}
-            <div><a href="https://discord.gg/SGPG8PqkHW">Discord</a></div>
+            {/* <div><a href="https://discord.gg/SGPG8PqkHW">Discord</a></div> */}
           </div>
         </div>
         <div className='mt-16 flex md:items-start items-center  justify-around md:flex-row flex-col'>
           <div className='text-center'>
             <p className='font-InterRegular text-xs '>Have queries? Reach out to us on the email below!</p>
-            <a href="mailto:corporate@lumoslabs.co" className='text-cyan-400 underline font-InterMedium '>corporate@lumoslabs.co</a>
+            {/* <a href="mailto:corporate@lumoslabs.co" className='text-cyan-400 underline font-InterMedium '>corporate@lumoslabs.co</a> */}
           </div>
           {/* <div className='flex font-BrinnanBold gap-2 md:gap-5 underline text-neutral-300 flex-row mt-3'>
             <a href=""> Privacy & Terms</a>
